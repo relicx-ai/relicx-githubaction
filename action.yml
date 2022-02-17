@@ -1,0 +1,43 @@
+# action.yml
+name: 'Relicx'
+description: 'Run a relicx test suite and wait for its result'
+inputs:
+  username:
+    description: 'username'
+    required: true
+  password:
+    description: 'password'
+    required: true
+  app_id:
+    description: 'application id'
+    required: true
+  command:
+    type: choice
+    description: 'command'
+    required: true
+    options:
+      - run_test_suite
+  test_suite_id:
+    description: 'test_suite_id'
+    required: true
+  environment_id:
+    description: 'environment_id'
+    required: true
+  wait:
+    description: 'do not wait for test suite run to complete'
+    default: "false"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+     relicx_username: ${{ inputs.username }}
+     relicx_password: ${{ inputs.password }}
+  args:
+    - -m
+    - relicx.cli
+    - --app_id=${{ inputs.app_id }}
+    - ${{ inputs.command }}
+    - --test_suite_id=${{ inputs.test_suite_id }}
+    - --environment_id=${{ inputs.environment_id }} 
+    - --wait=${{ inputs.wait }}
+
