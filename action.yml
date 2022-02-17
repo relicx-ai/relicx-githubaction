@@ -26,6 +26,9 @@ inputs:
   wait:
     description: 'do not wait for test suite run to complete'
     default: "false"
+  host:
+    description: 'internal use only: for validating this action pre-release'
+    default: ""
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -35,6 +38,7 @@ runs:
   args:
     - -m
     - relicx.cli
+    - ${{ inputs.host }}
     - --app_id=${{ inputs.app_id }}
     - ${{ inputs.command }}
     - --test_suite_id=${{ inputs.test_suite_id }}
