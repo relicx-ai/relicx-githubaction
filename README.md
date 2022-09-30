@@ -32,6 +32,9 @@ The environment_id
 If set to true then the github action will block until the test suite run
 completes. 
 
+### `commit_sha`
+Commit SHA on which test suite will run. Including can help in RCA analysis and help in comparing between different test suite runs.
+
 ## Example usage
 
 ```
