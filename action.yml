@@ -42,5 +42,5 @@ runs:
     - --test_suite_id=${{ inputs.test_suite_id }}
     - --environment_id=${{ inputs.environment_id }} 
     - --wait=${{ inputs.wait }}
-    - --commit_sha={{ inputs.commit_sha }}
+    - --commit_sha=${{ inputs.commit_sha }}
 
