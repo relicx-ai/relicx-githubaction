@@ -28,6 +28,8 @@ inputs:
     default: "false"
   commit_sha:
     description: 'Commit SHA on which test suite will run'
+  num_browsers:
+    description: 'Number of concurrent browsers to use for autonomous test'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -43,4 +45,5 @@ runs:
     - --environment_id=${{ inputs.environment_id }} 
     - --wait=${{ inputs.wait }}
     - --commit_sha=${{ inputs.commit_sha }}
+    - --num_browsers=${{ inputs.num_browsers }}
 

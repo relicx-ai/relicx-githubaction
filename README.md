@@ -35,10 +35,13 @@ completes.
 ### `commit_sha`
 Commit SHA on which test suite will run. Including can help in RCA analysis and help in comparing between different test suite runs.
 
+### `num_browsers`
+Number of concurrent browsers to use when running autonomous test suite. Only relevant for 1-click autonomous testing
+
 ## Example usage
 
 ```
-uses: actions/relicx-githubaction@v1
+uses: actions/relicx-githubaction@v1.4
 with:
   username: '-----'
   password: '-----'
